@@ -1,25 +1,22 @@
-Applied Mathematics | Numerical Analysis 
+[Applied Mathematics](https://en.wikipedia.org/wiki/Applied_mathematics)| [Numerical Analysis](https://en.wikipedia.org/wiki/Numerical_analysis])
 
-# numerical_analysis_py
+# Introduction 
+>  I choose to upload the python file for my CW in year 2, which including some main numerical methods for mathematical problems, like root-finding problem, linear system, interpolation, derivative of interpolation and ODE solver. 
+>
+> Additionaly, I add some interesting problems from physics, with my solutions by python and corresponding physics background. These problems could be used as case study for scientific computing learning by python.
 
-## Introduction 
-I choose to upload the python file for my CW in year 2, which including some main numerical methods for mathematical problems, like root-finding problem, linear system, interpolation, derivative of interpolation and ODE solver. 
-
-Additionaly, I add some interesting problems from physics, with my solutions by python and corresponding physics background. These problems could be used as case study for scientific computing learning by python.
-
-```orbitCalculatro.py``` 
-
-```trinityExplosion.py```
-
-```fieldsVisualize.py```
++ ```orbitCalculator.py```
++ ```trinityExplosion.py```
++ ```fieldsVisualize.py```
++ 
 
 
 
-## Background 
+# Background 
 
-### Orbit for satellite 
+## Orbit for satellite 
 
-```orbitCalculatro.py``` 
+```orbitCalculator.py``` 
 
 According to the  Kepler's laws, the orbit is an ellipse with major axis $a$ and minor axis $b$, satisfying the formula:
 
@@ -48,7 +45,7 @@ The length of the orbit is :
 $$
 L=4\int_0^{\pi/2}\sqrt{x^2+y^2}d\theta=4\int_0^{\pi/2}\sqrt{a^2cos^2\theta+b^2sin^2\theta}d\theta
 $$
-​
+
 
 The area for the satellite passing by in time unit is:
 
@@ -79,11 +76,11 @@ $T=16 h$
 
 
 
-### Trinity Explosion
+## Trinity Explosion
 
 ```trinityExplosion.py```
 
-G. I. Taylor studied the movie of the Trinity test explosion, estimating the yield of the bomb. The method he used is what we called dimension analysis.
+[G. I. Taylor](https://en.wikipedia.org/wiki/G._I._Taylor) studied the movie of the Trinity test explosion, estimating the yield of the bomb. The method he used is what we called [dimension analysis](https://en.wikipedia.org/wiki/Dimensional_analysis).
 
 
 
@@ -110,7 +107,7 @@ Assuming that $r = f (\rho,E,t)$, that is :$r = C\rho^xE^yt^z$, where $x,y,z$ ar
 $$
 L = [ML^{-3}]^x[ML^2T^{-2}]^y[T]^z
 $$
- 
+
 
 Expand both sides and equate corresponding exponents:
 
@@ -160,7 +157,7 @@ By calculation, $E \approx 8.6418 \times10^{13} J$​, since $1 kt = 4.1848 \tim
 
 
 
-### Fields Visualization
+## Fields Visualization
 
 ```fieldsVisualize.py```
 
