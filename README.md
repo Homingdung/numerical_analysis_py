@@ -3,13 +3,13 @@
 ## Introduction 
 I choose to upload the python file for my CW in year 2, which including some main numerical methods for mathematical problems, like root-finding problem, linear system, interpolation, derivative of interpolation and ODE solver. 
 
-Additionaly, I add two interesting problems from physics, ```orbitCalculatro.py``` and ```trinityExplosion.py```. The below is the basic background information of these two physical problems
+Additionaly, I add two interesting problems from physics, with solutions by python, ```orbitCalculatro.py``` and ```trinityExplosion.py```. The below is the basic background information of these two physical problems
 
 ## Background 
 
 ### Orbit for satellite
 
-According to the  Kepler's laws， the orbit is an ellipse with major axis $a$ and minor axis $b$, satisfying the formula:
+According to the  Kepler's laws, the orbit is an ellipse with major axis $a$ and minor axis $b$, satisfying the formula:
 
 $\frac{x^2}{a^2}+\frac{y^2}{b^2} = 1$
 
@@ -135,6 +135,8 @@ By calculation, $E \approx 8.6418 \times10^{13} J$​, since $1 kt = 4.1848 \tim
 
 
 
-References：
+# References：
 
 喻文健. *数值分析与算法*. Qing hua da xue chu ban she, 2015.
+
+https://blog.nuclearsecrecy.com/trinity/
