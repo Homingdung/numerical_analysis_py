@@ -3,7 +3,7 @@
 # Introduction 
 >  I choose to upload the python file for my CW in year 2, which including some main numerical methods for mathematical problems, like root-finding problem, linear system, interpolation, derivative of interpolation and ODE solver. 
 >
-> Additionaly, I add some interesting problems from physics, with my solutions by python and corresponding physics background. These problems could be used as case study for scientific computing learning by python.
+> Additionaly, I add some interesting problems from physics, with my solutions by python and the corresponding physics background. These problems could be used as case study for scientific computing learning by python.
 
 + ```orbitCalculator.py```
 + ```trinityExplosion.py```
@@ -23,10 +23,11 @@ According to the  Kepler's laws, the orbit is an ellipse with major axis $a$ and
 $$
 \frac{x^2}{a^2}+\frac{y^2}{b^2} = 1
 $$
-![p1](https://github.com/Peter3822724/numerical_analysis_py/blob/main/graph/IMG_0855.jpg)
+![p1](https://github.com/Peter3822724/numerical_analysis_py/blob/main/graph/orbit.png)
 
 
 
+Geometrically, we can get write the formula for parameters: 
 $$
 a=(h_1+h_2+2R)/2
 $$
@@ -64,17 +65,14 @@ The maximum speed of satellite is:
 $$
 v_{max}=\frac{2s}{h_1+R}​
 $$
-Some physical variables:
-
-$h_1=200km$
-
-$h_2=51000km$
-
-$R=6378km$
-
-$T=16 h$
-
-
+Since we've already known that:
+$$
+h_1=200km \\
+h_2=51000km \\
+R=6378km \\
+T=16 h \\
+$$
+Therefore,  ```orbitCalculator.py```  will calculate the value for $L$​ , $v$​ and $v_{max}$​​.
 
 ## Trinity Explosion
 
@@ -100,10 +98,19 @@ $t$: time at which the bomb cloud reaches $r$ ~ $[T]$
 
 
 
-Assuming that $r = f (\rho,E,t)$, that is :$r = C\rho^xE^yt^z$, where $x,y,z$ are constants. Based on their dimension:
+Assuming that:
+$$
+r = f (\rho,E,t)
+$$
+Specifically:
+$$
+r = C\rho^xE^yt^z
+$$
+where $x,y,z$​​ are constants.
 
 
 
+Based on their dimension:
 $$
 L = [ML^{-3}]^x[ML^2T^{-2}]^y[T]^z
 $$
@@ -116,23 +123,19 @@ L: 1 = -3x+2y \\
 M:0 = x + y   \\
 T: 0 = -2y + z \\
 $$
-solve this systems and we can get:
+Solve this systems and we can get:
 
 $$
 x = -1/5, y = 1/5, z = 2/5
 $$
-we could get the relationship between these variables:
+Thus, we could get the relationship between these variables:
 
 $$
 r = C(\frac{t^2E}{\rho})^{1/5}
 $$
 
 
-
-
 we could also use linear regression to solve the constants by rewirte the model and fit it:
-
-
 
 $$
 r = at^b
@@ -141,19 +144,17 @@ take the $log$ for both sides:
 $$
 log(r) = log(a) + blog(t)
 $$
-```trinityExplosion.py```  will calculate the parameter for $a$​ and $b$​ based on the data recorded.
+By linear regression, ```trinityExplosion.py```  will calculate the parameter for $a$​​ and $b$​​​ based on the data recorded, and we can get the value for parameter $b \approx 0.4094$​, which is nearly $2/5$
+
+so:
+$$
+E \approx \rho e^c
+$$
+where $c = 5log(r)-2log(t)$​​​​,
 
 
 
-$b \approx 0.4094$
-
-
-
-so $E \approx \rho e^c$​, where $c = 5log(r)-2log(t)$​
-
-
-
-By calculation, $E \approx 8.6418 \times10^{13} J$​, since $1 kt = 4.1848 \times 10 ^{12}$​, the total yield for bomb is $20.65 kt$​​.
+Further calculation tells us that $E \approx 8.6418 \times10^{13} J$​​, since $1 kt = 4.1848 \times 10 ^{12}$​​, the total yield for bomb is $20.65 kt$​​​.
 
 
 
