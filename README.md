@@ -1,9 +1,17 @@
+[TOC]
+
 # numerical_analysis_py
 
 ## Introduction 
 I choose to upload the python file for my CW in year 2, which including some main numerical methods for mathematical problems, like root-finding problem, linear system, interpolation, derivative of interpolation and ODE solver. 
 
-Additionaly, I add two interesting problems from physics, with solutions by python, ```orbitCalculatro.py``` and ```trinityExplosion.py```. The below is the basic background information of these two physical problems
+Additionaly, I add some interesting problems from physics, with solutions by python and corresponding physics background.
+
+```orbitCalculatro.py``` 
+
+```trinityExplosion.py```.
+
+
 
 ## Background 
 
@@ -143,6 +151,17 @@ By calculation, $E \approx 8.6418 \times10^{13} J$​, since $1 kt = 4.1848 \tim
 
 # References：
 
+Johansson, Robert, Robert Johansson, and Suresh John. *Numerical Python*. Vol. 1. Apress, 2019.
+
+Kincaid, David, David Ronald Kincaid, and Elliott Ward Cheney. *Numerical analysis: mathematics of scientific computing*. Vol. 2. American Mathematical Soc., 2009.
+
+Chapra, Steven C. *Applied numerical methods with MATLAB for engineers and scientists*. McGraw-Hill Higher Education, 2008.
+
+Sauer, Timothy. "Numerical Analysis Pearson Addison Wesley." (2006).
+
+Burden, Richard L., and J. Douglas Faires. "Numerical analysis 8th ed." *Thomson Brooks/Cole* (2005).
+
 喻文健. *数值分析与算法*. Qing hua da xue chu ban she, 2015.
 
 https://blog.nuclearsecrecy.com/trinity/
+
