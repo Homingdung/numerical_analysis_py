@@ -5,11 +5,13 @@
 ## Introduction 
 I choose to upload the python file for my CW in year 2, which including some main numerical methods for mathematical problems, like root-finding problem, linear system, interpolation, derivative of interpolation and ODE solver. 
 
-Additionaly, I add some interesting problems from physics, with solutions by python and corresponding physics background.
+Additionaly, I add some interesting problems from physics, with my solutions by python and corresponding physics background. These problems could be used as case study for scientific computing learning by python.
 
 ```orbitCalculatro.py``` 
 
 ```trinityExplosion.py```.
+
+```fieldsVisualize.py```
 
 
 
@@ -35,7 +37,11 @@ $b=\sqrt{a^2-c^2}$
 
 The length of the orbit is :
 
-$L=4\int_0^{\pi/2}\sqrt{x^2+y^2}d\theta=4\int_0^{\pi/2}\sqrt{a^2cos^2\theta+b^2sin^2\theta}d\theta$
+$L=4\int_0^{\pi/2}\sqrt{x^2+y^2}d\theta=4\int_0^{\pi/2}\sqrt{a^2cos^2\theta+b^2sin^2\theta}d\theta$​​
+
+The area for the satellite passing by in time unit is:
+
+$s=\frac{\pi ab}{T}$
 
 The average speed of satellite is:
 
@@ -43,7 +49,7 @@ $v = L/T$
 
 The maximum speed of satellite is:
 
-$vmax=\frac{2s}{h_1+R}$​
+$v_{max}=\frac{2s}{h_1+R}$​​
 
 
 
@@ -146,6 +152,30 @@ so $E \approx \rho e^c$​, where $c = 5log(r)-2log(t)$​
 By calculation, $E \approx 8.6418 \times10^{13} J$​, since $1 kt = 4.1848 \times 10 ^{12}$​, the total yield for bomb is $20.65 kt$​​.
 
 
+
+### Fields Visualization
+
+For given function $Z=f(x,y)$​, we will show the contour plot with the direction fields as well.
+
+
+
+The gradient provides the directions, which is given by:
+
+$\grad f=\frac{\partial f}{\partial x}i+\frac{\partial f}{\partial y}j$ 
+
+
+
+The vector has a magnitude:
+
+$\sqrt{(\frac{\partial f}{\partial x})^2+(\frac{\partial f}{\partial y})^2}$​
+
+
+
+ and a direction:
+
+$\theta = \tan^{-1} (\frac{\partial f / \partial y}{\partial f /\partial x}) $
+
+In this example, we use function $f(x,y)=y-x-2*x^2-2xy-y^2$
 
 
 
