@@ -9,7 +9,7 @@ Additionaly, I add some interesting problems from physics, with my solutions by 
 
 ```orbitCalculatro.py``` 
 
-```trinityExplosion.py```.
+```trinityExplosion.py```
 
 ```fieldsVisualize.py```
 
@@ -17,7 +17,9 @@ Additionaly, I add some interesting problems from physics, with my solutions by 
 
 ## Background 
 
-### Orbit for satellite
+### Orbit for satellite 
+
+```orbitCalculatro.py``` 
 
 According to the  Kepler's laws, the orbit is an ellipse with major axis $a$ and minor axis $b$, satisfying the formula:
 
@@ -66,6 +68,8 @@ $T=16 h$
 
 
 ### Trinity Explosion
+
+```trinityExplosion.py```
 
 G. I. Taylor studied the movie of the Trinity test explosion, estimating the yield of the bomb. The method he used is what we called dimension analysis.
 
@@ -154,6 +158,8 @@ By calculation, $E \approx 8.6418 \times10^{13} J$​, since $1 kt = 4.1848 \tim
 
 
 ### Fields Visualization
+
+```fieldsVisualize.py```
 
 For given function $Z=f(x,y)$​, we will show the contour plot with the direction fields as well.
 
