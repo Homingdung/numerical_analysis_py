@@ -168,7 +168,7 @@ For given function $Z=f(x,y)$​, we will show the contour plot with the directi
 The gradient provides the directions, which is given by:
 
 $$
-\grad f=\frac{\partial f}{\partial x}i+\frac{\partial f}{\partial y}j
+\frac{\partial f}{\partial x}i+\frac{\partial f}{\partial y}j
 $$
 The vector has a magnitude:
 
