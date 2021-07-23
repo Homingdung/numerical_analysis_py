@@ -9,7 +9,47 @@ Additionaly, I add two interesting problems from physics, ```orbitCalculatro.py`
 
 ### Orbit for satellite
 
-###  
+According to the  Kepler's laws， the orbit is an ellipse with major axis $a$ and minor axis $b$, satisfying the formula:
+
+$\frac{x^2}{a^2}+\frac{y^2}{b^2} = 1$
+
+
+
+![p1](https://github.com/Peter3822724/numerical_analysis_py/blob/main/graph/IMG_0855.jpg)
+
+
+
+$a=(h_1+h_2+2R)/2$​
+
+$c=h_2+R-a=(h_2-h_1)/2$
+
+$b=\sqrt{a^2-c^2}$
+
+The length of the orbit is :
+
+$L=4\int_0^{\pi/2}\sqrt{x^2+y^2}d\theta=4\int_0^{\pi/2}\sqrt{a^2cos^2\theta+b^2sin^2\theta}d\theta$
+
+The average speed of satellite is:
+
+$v = L/T$
+
+The maximum speed of satellite is:
+
+$vmax=\frac{2s}{h_1+R}$​
+
+
+
+Some facts:
+
+$h_1=200km$
+
+$h_2=51000km$
+
+$R=6378km$
+
+$T=16 h$
+
+
 
 ### Trinity Explosion
 
