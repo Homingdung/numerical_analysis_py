@@ -23,7 +23,7 @@ Additionaly, I add some interesting problems from physics, with my solutions by 
 
 According to the  Kepler's laws, the orbit is an ellipse with major axis $a$ and minor axis $b$, satisfying the formula:
 
-$\frac{x^2}{a^2}+\frac{y^2}{b^2} = 1$
+​										$\frac{x^2}{a^2}+\frac{y^2}{b^2} = 1$
 
 
 
@@ -31,11 +31,11 @@ $\frac{x^2}{a^2}+\frac{y^2}{b^2} = 1$
 
 
 
-$a=(h_1+h_2+2R)/2$​
+​										$a=(h_1+h_2+2R)/2$
 
-$c=h_2+R-a=(h_2-h_1)/2$
+​										$c=h_2+R-a=(h_2-h_1)/2$
 
-$b=\sqrt{a^2-c^2}$
+​										$b=\sqrt{a^2-c^2}$
 
 The length of the orbit is :
 
@@ -121,7 +121,7 @@ we could get the relationship between these variables:
 
 
 
-$r = C(\frac{t^2E}{\rho})^{1/5}$
+$r = C(\frac{t^2E}{\rho})^{1/5}$​
 
 
 
