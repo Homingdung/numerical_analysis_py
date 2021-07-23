@@ -55,6 +55,12 @@ $T=16 h$
 
 G. I. Taylor studied the movie of the Trinity test explosion, estimating the yield of the bomb. The method he used is what we called dimension analysis.
 
+
+
+![trinity](https://github.com/Peter3822724/numerical_analysis_py/blob/main/graph/trinity.png)
+
+
+
 Dimensions of some physical variables:
 
 $r$​ : the radius of the bomb cloud ~ $[L]$
