@@ -1,4 +1,4 @@
-[TOC]
+Applied Mathematics | Numerical Analysis 
 
 # numerical_analysis_py
 
@@ -23,39 +23,51 @@ Additionaly, I add some interesting problems from physics, with my solutions by 
 
 According to the  Kepler's laws, the orbit is an ellipse with major axis $a$ and minor axis $b$, satisfying the formula:
 
-​										$\frac{x^2}{a^2}+\frac{y^2}{b^2} = 1$
-
-
-
+$$
+\frac{x^2}{a^2}+\frac{y^2}{b^2} = 1
+$$
 ![p1](https://github.com/Peter3822724/numerical_analysis_py/blob/main/graph/IMG_0855.jpg)
 
 
 
-​										$a=(h_1+h_2+2R)/2$
+$$
+a=(h_1+h_2+2R)/2
+$$
 
-​										$c=h_2+R-a=(h_2-h_1)/2$
+$$
+c=h_2+R-a=(h_2-h_1)/2
+$$
 
-​										$b=\sqrt{a^2-c^2}$
+$$
+b=\sqrt{a^2-c^2}
+$$
+
+
 
 The length of the orbit is :
-
-$L=4\int_0^{\pi/2}\sqrt{x^2+y^2}d\theta=4\int_0^{\pi/2}\sqrt{a^2cos^2\theta+b^2sin^2\theta}d\theta$​​
+$$
+L=4\int_0^{\pi/2}\sqrt{x^2+y^2}d\theta=4\int_0^{\pi/2}\sqrt{a^2cos^2\theta+b^2sin^2\theta}d\theta
+$$
+​
 
 The area for the satellite passing by in time unit is:
 
-$s=\frac{\pi ab}{T}$
-
+$$
+s=\frac{\pi ab}{T}
+$$
 The average speed of satellite is:
 
-$v = L/T$
+$$
+v = L/T
+$$
+
 
 The maximum speed of satellite is:
 
-$v_{max}=\frac{2s}{h_1+R}$​​
-
-
-
-Some facts:
+$$
+v_{max}=\frac{2s}{h_1+R}​
+$$
+Some physical variables:
 
 $h_1=200km$
 
@@ -95,33 +107,29 @@ Assuming that $r = f (\rho,E,t)$, that is :$r = C\rho^xE^yt^z$, where $x,y,z$ ar
 
 
 
-$L = [ML^{-3}]^x[ML^2T^{-2}]^y[T]^z$
-
+$$
+L = [ML^{-3}]^x[ML^2T^{-2}]^y[T]^z
+$$
  
 
 Expand both sides and equate corresponding exponents:
 
-$L: 1 = -3x+2y$
-
-$M:0 = x + y$
-
-$T: 0 = -2y + z$
-
-
-
+$$
+L: 1 = -3x+2y \\
+M:0 = x + y   \\
+T: 0 = -2y + z \\
+$$
 solve this systems and we can get:
 
-
-
-$x = -1/5, y = 1/5, z = 2/5$
-
-
-
+$$
+x = -1/5, y = 1/5, z = 2/5
+$$
 we could get the relationship between these variables:
 
+$$
+r = C(\frac{t^2E}{\rho})^{1/5}
+$$
 
-
-$r = C(\frac{t^2E}{\rho})^{1/5}$​
 
 
 
@@ -129,19 +137,14 @@ we could also use linear regression to solve the constants by rewirte the model 
 
 
 
-$r = at^b$
-
-
-
+$$
+r = at^b
+$$
 take the $log$ for both sides:
-
-
-
-$log(r) = log(a) + blog(t)$​​​
-
-
-
-```trinityExplosion```  will calculate the parameter for $a$ and $b$ based on the data recorded.
+$$
+log(r) = log(a) + blog(t)
+$$
+```trinityExplosion.py```  will calculate the parameter for $a$​ and $b$​ based on the data recorded.
 
 
 
@@ -167,21 +170,20 @@ For given function $Z=f(x,y)$​, we will show the contour plot with the directi
 
 The gradient provides the directions, which is given by:
 
-$\grad f=\frac{\partial f}{\partial x}i+\frac{\partial f}{\partial y}j$ 
-
-
-
+$$
+\grad f=\frac{\partial f}{\partial x}i+\frac{\partial f}{\partial y}j
+$$
 The vector has a magnitude:
 
-$\sqrt{(\frac{\partial f}{\partial x})^2+(\frac{\partial f}{\partial y})^2}$​
-
-
-
+$$
+\sqrt{(\frac{\partial f}{\partial x})^2+(\frac{\partial f}{\partial y})^2}
+$$
  and a direction:
 
-$\theta = \tan^{-1} (\frac{\partial f / \partial y}{\partial f /\partial x}) $
-
-In this example, we use function $f(x,y)=y-x-2*x^2-2xy-y^2$
+$$
+\theta = \tan^{-1} (\frac{\partial f / \partial y}{\partial f /\partial x})
+$$
+In this example, we use function $f(x,y)=y-x-2x^2-2xy-y^2$​
 
 
 
