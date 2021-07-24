@@ -220,7 +220,7 @@ The trajectory of Lorenz equation is visualize by ```LorenzEq.py```
 
 
 
-![]()
+![Lorenz](https://github.com/Peter3822724/numerical_analysis_py/blob/main/graph/Lorenz.png)
 
 # References：
 
