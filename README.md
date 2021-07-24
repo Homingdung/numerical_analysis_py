@@ -1,28 +1,34 @@
-[Applied Mathematics](https://en.wikipedia.org/wiki/Applied_mathematics)| [Numerical Analysis](https://en.wikipedia.org/wiki/Numerical_analysis])
+![Applied Mathematics](https://img.shields.io/badge/math-applied%20mathematics-brightgreen)| ![Numerical Analysis](https://img.shields.io/badge/python-numerical%20anaylsis-green)
 
 # Introduction 
->  CW is a collection of my coursework in year 2 rewritten by python, which includes numerical methods:
->  + Linear system:
->  + 
->   + Bisection method
->   + Fixed point method
->   + Newton's method
->  + 
->
-> Additionaly, I add some interesting problems from physics, with my solutions by python and the corresponding physics background. These problems could be used as case study for scientific computing learning by python.
+>  ```CW_py``` is a collection of my coursework in year 2 rewritten by python, which includes numerical methods:
+
++ Nonlinear equations:
+    + Bisection method ```bisection_func.py``` ```bisectionStop_func.py```
+    + Fixed point method ```fpiter_func.py```
++ Linear system:
+  + Direct methods:
+     + Gaussian elimination ```forwElimPP_func.py```
+     + LU decomposition```forwElimLU_funcc.py```
+  + Iteration method:
+    + Jacobi method ```jacobi_func.py```
++ Interpolation ```lagrangePoly.py``` ```polyInterpolation.py```
++ Numerical differentiation ```derivLagrangePoly.py``` ```polyDerivative```
++ ODE solver ```rungeKutta.py```
+
+
+
+>  Additionaly, I add some interesting problems from physics, with my solutions by python and the corresponding physics background. These problems could be used as case study for scientific computing learning by python.
 
 + ```orbitCalculator.py```
 + ```trinityExplosion.py```
 + ```fieldsVisualize.py```
-+ 
-
-
 
 # Background 
 
 ## Orbit for satellite 
 
-```orbitCalculator.py``` 
+>  ```orbitCalculator.py```  will calculate the length of orbit, average speed, and maximum speed of satellite
 
 According to the  Kepler's laws, the orbit is an ellipse with major axis $a$ and minor axis $b$, satisfying the formula:
 
@@ -82,7 +88,7 @@ Therefore,  ```orbitCalculator.py```  will calculate the value for $L$​ , $v$�
 
 ## Trinity Explosion
 
-```trinityExplosion.py```
+> ```trinityExplosion.py```  will use linear regression model to verify the dimensional analysis
 
 [G. I. Taylor](https://en.wikipedia.org/wiki/G._I._Taylor) studied the movie of the Trinity test explosion, estimating the yield of the bomb. The method he used is what we called [dimension analysis](https://en.wikipedia.org/wiki/Dimensional_analysis).
 
@@ -165,8 +171,7 @@ Further calculation tells us that $E \approx 8.6418 \times10^{13} J$​​, sinc
 
 
 ## Fields Visualization
-
-```fieldsVisualize.py```
+> ```fieldsVisualize.py``` will visualize the directional fields for certain function, with directions displayed by partial derivatives.
 
 For given function $Z=f(x,y)$​, we will show the contour plot with the direction fields as well.
 
