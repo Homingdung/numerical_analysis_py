@@ -40,19 +40,14 @@ $$
 
 
 Geometrically, we can get write the formula for parameters: 
-$$
-a=(h_1+h_2+2R)/2
-$$
 
 $$
-c=h_2+R-a=(h_2-h_1)/2
+\begin{eqnarray}
+&&a=(h_1+h_2+2R)/2 \\
+&&c=h_2+R-a=(h_2-h_1)/2\\
+&&b=\sqrt{a^2-c^2}
+\end{eqnarray}
 $$
-
-$$
-b=\sqrt{a^2-c^2}
-$$
-
-
 
 The length of the orbit is :
 $$
@@ -79,14 +74,16 @@ v_{max}=\frac{2s}{h_1+R}​
 $$
 Since we've already known that:
 $$
-h_1=200km \\
-h_2=51000km \\
-R=6378km \\
-T=16 h \\
+\begin{eqnarray}
+&&h_1=200km \\
+&&h_2=51000km \\
+&&R=6378km \\
+&&T=16 h \\
+\end{eqnarray}
 $$
 Therefore,  ```orbitCalculator.py```  will calculate the value for $L$​ , $v$​ and $v_{max}$​​.
 
-## Trinity Explosion
+## Trinity explosion
 
 > ```trinityExplosion.py```  will use linear regression model to verify the dimensional analysis
 
@@ -131,9 +128,11 @@ $$
 Expand both sides and equate corresponding exponents:
 
 $$
-L: 1 = -3x+2y \\
-M:0 = x + y   \\
-T: 0 = -2y + z \\
+\begin{eqnarray}
+&&L: 1 = -3x+2y \\
+&&M:0 = x + y   \\
+&&T: 0 = -2y + z \\
+\end{eqnarray}
 $$
 Solve this systems and we can get:
 
@@ -170,7 +169,7 @@ Further calculation tells us that $E \approx 8.6418 \times10^{13} J$​​, sinc
 
 
 
-## Fields Visualization
+## Fields visualization
 > ```fieldsVisualize.py``` will visualize the directional fields for certain function, with directions displayed by partial derivatives.
 
 For given function $Z=f(x,y)$​, we will show the contour plot with the direction fields as well.
@@ -196,19 +195,46 @@ In this example, we use function $f(x,y)=y-x-2x^2-2xy-y^2$​
 
 
 
+## Lorenz attractor
+
+> ```LorenzEq.py``` will visualize the Lorenz equations 
+
+The Lorenz equations originated from a miniature atmosphere model, which is described by the equations:
+$$
+\begin{eqnarray}
+&&\dot{x} = -sx+sy\\
+&&\dot{y} = -xz+rx-y\\ 
+&&\dot{z} = xy-bz\\
+\end{eqnarray}
+$$
+
+The variable $x$ denotes the clockwise circulation velocity , $y$ denotes the temperature difference between the ascending and descending columns of air and $z$ denotes the deviation from a strictly linear temperature profile in the vertical direction.
+
+
+
+Commonly, the setting for the parameters is $s=10, r=28, b=8/3$
+
+
+
+The trajectory of Lorenz equation is visualize by ```LorenzEq.py```
+
+
+
+![]()
+
 # References：
 
-Johansson, Robert, Robert Johansson, and Suresh John. *Numerical Python*. Vol. 1. Apress, 2019.
++ Johansson, Robert, Robert Johansson, and Suresh John. *Numerical Python*. Vol. 1. Apress, 2019.
 
-Kincaid, David, David Ronald Kincaid, and Elliott Ward Cheney. *Numerical analysis: mathematics of scientific computing*. Vol. 2. American Mathematical Soc., 2009.
++ Kincaid, David, David Ronald Kincaid, and Elliott Ward Cheney. *Numerical analysis: mathematics of scientific computing*. Vol. 2. American Mathematical Soc., 2009.
 
-Chapra, Steven C. *Applied numerical methods with MATLAB for engineers and scientists*. McGraw-Hill Higher Education, 2008.
++ Chapra, Steven C. *Applied numerical methods with MATLAB for engineers and scientists*. McGraw-Hill Higher Education, 2008.
 
-Sauer, Timothy. "Numerical Analysis Pearson Addison Wesley." (2006).
++ Sauer, Timothy. "Numerical Analysis Pearson Addison Wesley." (2006).
 
-Burden, Richard L., and J. Douglas Faires. "Numerical analysis 8th ed." *Thomson Brooks/Cole* (2005).
++ Burden, Richard L., and J. Douglas Faires. "Numerical analysis 8th ed." *Thomson Brooks/Cole* (2005).
 
-喻文健. *数值分析与算法*. Qing hua da xue chu ban she, 2015.
++ 喻文健. *数值分析与算法*. Qing hua da xue chu ban she, 2015.
 
-https://blog.nuclearsecrecy.com/trinity/
++ [Trinity Explosion](https://blog.nuclearsecrecy.com/trinity/)
 
