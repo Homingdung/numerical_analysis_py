@@ -1,7 +1,13 @@
 [Applied Mathematics](https://en.wikipedia.org/wiki/Applied_mathematics)| [Numerical Analysis](https://en.wikipedia.org/wiki/Numerical_analysis])
 
 # Introduction 
->  I choose to upload the python file for my CW in year 2, which including some main numerical methods for mathematical problems, like root-finding problem, linear system, interpolation, derivative of interpolation and ODE solver. 
+>  CW is a collection of my coursework in year 2 rewritten by python, which includes numerical methods:
+>  + Linear system:
+>  + 
+>   + Bisection method
+>   + Fixed point method
+>   + Newton's method
+>  + 
 >
 > Additionaly, I add some interesting problems from physics, with my solutions by python and the corresponding physics background. These problems could be used as case study for scientific computing learning by python.
 
