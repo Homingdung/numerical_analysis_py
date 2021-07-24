@@ -1,4 +1,4 @@
-![Applied Mathematics](https://img.shields.io/badge/math-applied%20mathematics-brightgreen)![Numerical Analysis](https://img.shields.io/badge/python-numerical%20anaylsis-green)
+![Applied Mathematics](https://img.shields.io/badge/math-applied%20mathematics-brightgreen)   ![Numerical Analysis](https://img.shields.io/badge/python-numerical%20anaylsis-green)
 
 # Introduction 
 >  ```CW_py``` is a collection of my coursework in year 2 rewritten by python, which includes numerical methods:
