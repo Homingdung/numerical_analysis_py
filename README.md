@@ -10,7 +10,7 @@
   + Direct methods:
      + Gaussian elimination ```forwElimPP_func.py```
      + LU decomposition```forwElimLU_funcc.py```
-  + Iteration method:
+  + Iterative method:
     + Jacobi method ```jacobi_func.py```
 + Interpolation ```lagrangePoly.py``` ```polyInterpolation.py```
 + Numerical differentiation ```derivLagrangePoly.py``` ```polyDerivative```
