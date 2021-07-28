@@ -23,6 +23,7 @@
 + ```orbitCalculator.py```
 + ```trinityExplosion.py```
 + ```fieldsVisualize.py```
++ ```LorenzEq.py```
 
 # Background 
 
