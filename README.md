@@ -36,7 +36,7 @@ According to the  Kepler's laws, the orbit is an ellipse with major axis $a$ and
 $$
 \frac{x^2}{a^2}+\frac{y^2}{b^2} = 1
 $$
-![p1](https://github.com/Peter3822724/numerical_analysis_py/blob/main/graph/orbit.png)
+![orbit](https://tva1.sinaimg.cn/large/008i3skNgy1gtd1q4hzcnj61320fmdgt02.jpg)
 
 
 
@@ -92,9 +92,7 @@ Therefore,  ```orbitCalculator.py```  will calculate the value for $L$​ , $v$�
 
 
 
-![trinity](https://github.com/Peter3822724/numerical_analysis_py/blob/main/graph/trinity.png)
-
-
+![trinity](https://tva1.sinaimg.cn/large/008i3skNgy1gtd1qeszyvj60xc0q4wh502.jpg)
 
 Dimensions of some physical variables:
 
@@ -221,7 +219,7 @@ The trajectory of Lorenz equation is visualize by ```LorenzEq.py```
 
 
 
-![Lorenz](https://github.com/Peter3822724/numerical_analysis_py/blob/main/graph/Lorenz.png)
+![Lorenz](https://tva1.sinaimg.cn/large/008i3skNgy1gtd1q3604ij60zk0qo41t02.jpg))
 
 # References：
 
