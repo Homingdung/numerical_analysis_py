@@ -261,9 +261,13 @@ $$
 0.5(x^{(1)}(n-1))+x^{(1)}(n))
 \end{array}\right]
 \end{equation}
-, \mathbf{Y_n}=(x^{(0)}(2),x^{(0)}(3),...,x^{(0)}(n))^T
 $$
 
+$$
+\begin{equation}
+\mathbf{Y_n}=(x^{(0)}(2),x^{(0)}(3),...,x^{(0)}(n))^T
+\end{equation}
+$$
 
 
 + Step 4: We use least square method to solve for $\beta$
@@ -355,7 +359,7 @@ $$
 
 ### Example
 
-Profits of a company [3] from 1999-2008 are as follows: [89677, 99215, 109655, 120333, 135823, 159878, 182321, 209407, 246619, 300670], now we need to predict the profit for this company in the future. 
+Profits of a company from 1999-2008 are as follows: [89677, 99215, 109655, 120333, 135823, 159878, 182321, 209407, 246619, 300670], now we need to predict the profit for this company in the future. 
 
 The true value and the predicted value could be seen as follows:
 
