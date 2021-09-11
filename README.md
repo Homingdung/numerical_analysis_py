@@ -369,15 +369,21 @@ The true value and the predicted value could be seen as follows:
 
 # References：
 
-+ Johansson, Robert, Robert Johansson, and Suresh John. *Numerical Python*. Vol. 1. Apress, 2019.
-+ Kincaid, David, David Ronald Kincaid, and Elliott Ward Cheney. *Numerical analysis: mathematics of scientific computing*. Vol. 2. American Mathematical Soc., 2009.
-+ Chapra, Steven C. *Applied numerical methods with MATLAB for engineers and scientists*. McGraw-Hill Higher Education, 2008.
-+ Sauer, Timothy. "Numerical Analysis Pearson Addison Wesley." (2006).
-+ Burden, Richard L., and J. Douglas Faires. "Numerical analysis 8th ed." *Thomson Brooks/Cole* (2005).
-+ 喻文健. *数值分析与算法*. Qing hua da xue chu ban she, 2015.
-+ [Trinity Explosion](https://blog.nuclearsecrecy.com/trinity/)
-+ Zhang, Zhen, Xiao Xu, and Zhan Wang. "Application of grey prediction model to short-time passenger flow forecast." *AIP Conference Proceedings*. Vol. 1839. No. 1. AIP Publishing LLC, 2017.
-+ 卓金武. "MATLAB 在数学建模中的应用." *北京: 北京航空航天大学出版社* (2011).
+[1] Johansson, Robert, Robert Johansson, and Suresh John. *Numerical Python*. Vol. 1. Apress, 2019.
+
+[2] Kincaid, David, David Ronald Kincaid, and Elliott Ward Cheney. *Numerical analysis: mathematics of scientific computing*. Vol. 2. American Mathematical Soc., 2009.
+
+[3] Chapra, Steven C. *Applied numerical methods with MATLAB for engineers and scientists*. McGraw-Hill Higher Education, 2008.
+
+[4] Sauer, Timothy. "Numerical Analysis Pearson Addison Wesley." (2006).
+
+[5] Burden, Richard L., and J. Douglas Faires. "Numerical analysis 8th ed." *Thomson Brooks/Cole* (2005).
+
+[6] 喻文健. *数值分析与算法*. Qing hua da xue chu ban she, 2015.
+
+[7] Zhang, Zhen, Xiao Xu, and Zhan Wang. "Application of grey prediction model to short-time passenger flow forecast." *AIP Conference Proceedings*. Vol. 1839. No. 1. AIP Publishing LLC, 2017.
+
+[8] 卓金武. "MATLAB 在数学建模中的应用." *北京: 北京航空航天大学出版社* (2011).
 
 
 
