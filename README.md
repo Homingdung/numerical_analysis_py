@@ -24,6 +24,7 @@
 + ```trinityExplosion.py```
 + ```fieldsVisualize.py```
 + ```LorenzEq.py```
++ ```grepyModel.py``` 
 
 # Background 
 
