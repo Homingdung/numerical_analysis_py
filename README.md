@@ -219,21 +219,163 @@ The trajectory of Lorenz equation is visualize by ```LorenzEq.py```
 
 
 
-![Lorenz](https://tva1.sinaimg.cn/large/008i3skNgy1gtd1q3604ij60zk0qo41t02.jpg))
+![Lorenz](https://tva1.sinaimg.cn/large/008i3skNgy1gtd1q3604ij60zk0qo41t02.jpg)
+
+## Grey model for prediction
+
+> ```greyModel.py``` will develop a grey model for predicting.
+
+### Methods
+
+Let the original data $\mathbf{x^{(0)}}=(x^{(0)}(1),x^{(0)}(2),...,x^{(0)}(n))$
+
++ Step 1: accumulate the original data to weaken the volatility.
+
+$$
+\mathbf{x^{(1)}}=(x^{(1)}(1),x^{(1)}(2),...,x^{(1)}(n))
+$$
+
+Where 
+$$
+x^{(0)}(t)=\sum_{t=1}^{n}x^{(0)}(t), \ t=1,2,...,n
+$$
+
+
++ Step 2: Build a first order ODE:
+
+$$
+\frac{dx^{(1)}}{dt}+ax^{(1)}=b
+$$
+
+$a$ and $b$ are constants. Let's construct a matrix $\beta=(a,b)^T$, if we can get the parameters $\beta$, we could get the predicted value for $x^{(0)}$.
+
++ Step 3: make the average value for the accumlated sequence:
+
+$$
+\begin{equation}
+\mathbf{B}=\left[\begin{array}{ccc}
+0.5(x^{(1)}(1)+x^{(1)}(2))\\
+0.5(x^{(1)}(2)+x^{(1)}(3))\\
+.\\
+.\\
+0.5(x^{(1)}(n-1))+x^{(1)}(n))
+\end{array}\right]
+\end{equation}
+, \mathbf{Y_n}=(x^{(0)}(2),x^{(0)}(3),...,x^{(0)}(n))^T
+$$
+
+
+
++ Step 4: We use least square method to solve for $\beta$
+
+$$
+\beta=(\mathbf{B}^T\mathbf{B})^{-1}\mathbf{B}\mathbf{Y_n}
+$$
+
++ Step 5: Once the parameters are known, we can solve for the ODE
+
+$$
+\hat{x}^{(1)}(t+1)=(x^{(0)}(1)-\frac{b}{a})exp(-at)+\frac{b}{a}
+$$
+
++ Step 6: Get the original sequence 
+
+$$
+\hat{x}^{(0)}(t+1)=\hat{x}^{(1)}(t+1)-\hat{x}^{(1)}(t)
+$$
+
++ Step 7: Once the model is selected, it must be tested to determine whether it is reasonable. We can calculate the residual.
+
+$$
+\epsilon^{(0)}(t)=\frac{x^{(0)}-\hat{x}^{(0)}(t)}{x^{(0)}(t)}
+$$
+
+The quality of the model is very high if $|\epsilon^{(0)}(t)|<0.1$. Actually, there are lots of model validation methods. For example, Posterior-variance-test, which is to test the statistical characteristics of the distribution of absolute residuals.
+
+**Posterior-variance-test** [2]
+
+1. Average value of the original sequence:
+
+$$
+\overline{x}^{(0)}= \frac{1}{n}\sum_{t=1}^{n}x^{(0)}(t)
+$$
+
+2. Mean square deviation of the original sequence:
+
+$$
+S_1 = \left(\frac{\sum_{t=1}^n(x^{(0)}(t)-\overline{x}^{(0)})^{2}}{n-1})^
+{1/2}\right)
+$$
+
+3. Mean of residuals:
+
+$$
+\Delta(t) =|x^{(0)}(t)-\hat{x}^{(0)}(t)|, \ \overline{\Delta}=\frac{1}{n}\sum_{t=1}^n\Delta^{(0)}(t)
+$$
+
+4. Mean square deviation of residuals:
+
+$$
+S_2 = \left(\frac{\sum_{t=1}^n(\Delta^{(0)}(t)-\overline{\Delta}^{(0)})^{2}}{n-1})^
+{1/2}\right)
+$$
+
+5. Variance ratio:
+
+$$
+C = \frac{S_2}{S_1}
+$$
+
+
+
+6. Mall residual probability:
+
+$$
+P=p\{|\Delta(t)-\overline{\Delta}|<0.6745\times S_1\}
+$$
+
+7. Test table: the ranks of forecase precision:
+
+
+| The Value of P | The value of C | Forecast precision Grade |
+| -------------- | -------------- | ------------------------ |
+| $> 0.95$       | $<0.35$        | Grade one: excellent     |
+| $>0.80$        | $<0.50$        | Grade two: good          |
+| $>0.70$        | $<0.65$        | Grade three:qualified    |
+| $\leq0.70$     | $\geq0.65$     | Grade four: unqualified  |
+
+
+Keep in mind that only the model that passes the test can be used for prediction.
+
++ Step 8: prediction by our model
+
+$$
+\mathbf{\hat{x}^{(0)}}=[x^{(0)}(1),x^{(0)}(2),...,x^{(0)}(n), x^{(0)}(n+1),...,x^{(0)}(n+m)]
+$$
+
+### Example
+
+Profits of a company [3] from 1999-2008 are as follows: [89677, 99215, 109655, 120333, 135823, 159878, 182321, 209407, 246619, 300670], now we need to predict the profit for this company in the future. 
+
+The true value and the predicted value could be seen as follows:
+
+![greymodel](https://tva1.sinaimg.cn/large/008i3skNgy1gu7kqzz2s9j60zk0qoq4k02.jpg)
+
+
 
 # References：
 
 + Johansson, Robert, Robert Johansson, and Suresh John. *Numerical Python*. Vol. 1. Apress, 2019.
-
 + Kincaid, David, David Ronald Kincaid, and Elliott Ward Cheney. *Numerical analysis: mathematics of scientific computing*. Vol. 2. American Mathematical Soc., 2009.
-
 + Chapra, Steven C. *Applied numerical methods with MATLAB for engineers and scientists*. McGraw-Hill Higher Education, 2008.
-
 + Sauer, Timothy. "Numerical Analysis Pearson Addison Wesley." (2006).
-
 + Burden, Richard L., and J. Douglas Faires. "Numerical analysis 8th ed." *Thomson Brooks/Cole* (2005).
-
 + 喻文健. *数值分析与算法*. Qing hua da xue chu ban she, 2015.
-
 + [Trinity Explosion](https://blog.nuclearsecrecy.com/trinity/)
++ Zhang, Zhen, Xiao Xu, and Zhan Wang. "Application of grey prediction model to short-time passenger flow forecast." *AIP Conference Proceedings*. Vol. 1839. No. 1. AIP Publishing LLC, 2017.
++ 卓金武. "MATLAB 在数学建模中的应用." *北京: 北京航空航天大学出版社* (2011).
+
+
+
+
 
