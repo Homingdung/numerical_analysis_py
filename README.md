@@ -366,6 +366,49 @@ The true value and the predicted value could be seen as follows:
 
 ![greymodel](https://tva1.sinaimg.cn/large/008i3skNgy1gu7kqzz2s9j60zk0qoq4k02.jpg)
 
+## Laplace method 
+
+> ```Laplace_method.py``` will verify the Laplace method for asymptotic analysis of integral. 
+
+$$
+I(x)=\int_{7/4}^{\infty}e^{xf(t)}, f(t) = -7t^2+5t^3-t^4
+$$
+
+ Find the leading asymptotic behaviour of $I(x)$ when $x>>1$
+
+Notice that $f(t)$ has a maximum point at $t=2$. Using Taylor series for $f(t)$ about $t=2$, we could get:
+$$
+f(t) \sim -4-(t-2)^2
+$$
+
+$$
+I(x)\sim \int_{7/4}^{\infty} e^{x(-4-(t-2)^2)}dt=e^{-4x}\int_{7/4}^{\infty}e^{-x(t-2)^2}dt=e^{-4x}\int_{-\sqrt{x}/4}^{\infty}e^{-s^2}\frac{ds}{\sqrt{x}}
+$$
+
+Since here we use $s=\sqrt{x}(t-2)$ to do the substitution in order to construct special integrals we have already known.
+$$
+I(x)\sim \frac{e^{-4x}}{\sqrt{x}}\int_{-\infty}^{\infty}e^{-s^2}ds
+$$
+As $x$ approches infinity:
+$$
+I(x)\sim \sqrt{\frac{\pi}{x}}e^{-4x}
+$$
+Since we knew that: $\int_{-\infty}^{\infty}e^{-s^2}ds=\sqrt{\pi}$
+
+
+
+Let's use numerical integration to double check our result: 
+
+$I(10)\approx 1.85 \times10^{-18}$, while $\sqrt{\frac{\pi}{10}}e^{-40}\approx2.38\times10^{-18}$
+
+$I(100)\approx3.7\times10^{-175}$,while $\sqrt{\frac{\pi}{100}}e^{-400}\approx3.4\times10^{-175}$
+
+
+
+
+
+
+
 
 
 # References：
