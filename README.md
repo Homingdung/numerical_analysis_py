@@ -25,6 +25,7 @@
 + ```fieldsVisualize.py```
 + ```LorenzEq.py```
 + ```grepyModel.py``` 
++ ```Laplace_Method.py```
 
 # Background 
 
