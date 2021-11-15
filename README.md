@@ -389,6 +389,8 @@ Since here we use $s=\sqrt{x}(t-2)$ to do the substitution in order to construct
 $$
 I(x)\sim \frac{e^{-4x}}{\sqrt{x}}\int_{-\infty}^{\infty}e^{-s^2}ds
 $$
+
+
 As $x$ approches infinity:
 $$
 I(x)\sim \sqrt{\frac{\pi}{x}}e^{-4x}
@@ -406,6 +408,183 @@ $I(100)\approx3.7\times10^{-175}$,while $\sqrt{\frac{\pi}{100}}e^{-400}\approx3.
 
 
 
+
+## Michaelis - Menton Model and Boundary layer theory
+
+> ```boundaryLayer.py``` will visualize the exact solution plot for a singular ODE. 
+
+### Introduction
+
+[Michaelis-Menten Model](https://en.wikipedia.org/wiki/Michaelis%E2%80%93Menten_kinetics) is a classic model in enzyme dynamics. This article will explan how we use the ODE systems to model the enzyme reaction and solve it with boudary layer theory.
+
+### Modeling 
+
+Considering the following chemical reaction, where $E$ stands for the enzyme, $S$ stands for substrate, $ES$ is the binding, and $P$ is the product. 
+
+![{\displaystyle {\ce {E{}+S<=>[{\mathit {k_{f}}}][{\mathit {k_{r}}}]ES->[k_{\ce {cat}}]E{}+P}}}](https://wikimedia.org/api/rest_v1/media/math/render/svg/4bae00cd4d91917219daf235391295adeb36c84d)
+
+
+
+The ODE systems are:
+$$
+\begin{aligned}
+\frac{d[E]}{dt}&=-k_1^{+}[E][S]+k_1^{-}[ES]+k_2^{+}[ES]\\
+\frac{d[S]}{dt}&= -k_1^{+}[E][S]+k_1^{-}[ES]\\
+\frac{d[ES]}{dt}&=k_1^{+}[E][S]-k_1^{-}[ES]-k_2^{+}[ES]\\
+\frac{d[P]}{dt}&=k_2^{+}{[ES]}
+
+\end{aligned}
+$$
+where $k_1^+=k_f$, $k_1^-=k_r$, $k_2^+=k_{cat}$.
+
+If we use conservation law, we find that :
+
+$\dot{[E]}+\dot{[ES]}=0$, which is equaivalent to $[E]+[ES]=0=const=E_0$
+
+$\dot{[S]}+\dot{[ES]}+\dot{[P]}=0$, which is equivalent to $[S]+[ES]+[P]=const=S_0$
+
+
+
+At time t=0, we consider the initial conditions: $[E](0)=E_0$, $[S](0)=S_0$, $[ES](0)=S_0$, $[ES](0)=0$, $[P](0)=0$.
+
+If we consider two ODEs when $t=0$:
+$$
+\begin{aligned}
+&\frac{d[S]}{dt}_{t=0}=-k_1^+E_0[S]\\
+&\frac{d[E]}{dt}_{t=0}=-k_1^{+}[E][S_0]
+\end{aligned}
+$$
+
+> we want to see how $S$ evolves at the very beginning, so we keep it as variable, same for $E$
+
+
+
+The LHS is the reaction rate, since we know that $S_0>>E_0$, so $\underbrace{-k_1^{+}[E][S_0]}_{fast\ rate}>>\underbrace{-k_1^+E_0[S]}_{slow \ rate}$.
+
+
+
+### Nondimesionlization 
+
+The advantage of nondimensionlizaton is that we could rescale our parameters such that we could reduce the number of our parameters, which could simplify our systems for further analytical solutions and paramter estimations. 
+
+We plan to use two time scales for our systems. 
+
+**Slow time scale**:
+
+Choosing the variables: $t=\frac{\tau}{k_1^+E_0}$, $[S]=sS_0$, $[ES]=cE_0$, $\epsilon=\frac{E_0}{S_0}<<1$, and nondimesionlize the systems.
+$$
+\begin{aligned}
+&\frac{ds}{d\tau}=k_sc-s(1-c)\\
+&\epsilon\frac{dc}{d\tau}=s(1-c)-k_mc
+\end{aligned}
+$$
+
+
+where $k_s=\frac{k_1^-}{k_1^+s_0}$, $k_m=\frac{k_2^++k_1^+}{k_1^+s_0}$
+
+If $\epsilon \to 0$, then $0=s(1-c)-k_mc$, so $c=\frac{s}{s+k_m}$, which is a stationary solution. 
+
+Substitute the stationary solution in the second equation we can get:
+
+$\frac{ds}{d \tau}=\frac{s(k_s-k_m)}{s+k_m}$, $k_s-k_m=-\frac{k_2^+}{k_1+s_0}=-V_{max}$.
+
+**Fast time scale**:
+
+Choosing the variables: $t=\frac{T}{k_1^+S_0}$, $[S]=sS_0$, $[ES]=cE_0$, $\epsilon=\frac{E_0}{S_0}<<1$, and nondimesionlize the systems.
+$$
+\begin{aligned}
+&\frac{ds}{dT}=\epsilon(k_sc-s(1-c))\\
+&\frac{dc}{dT}=s(1-c)-k_mc
+\end{aligned}
+$$
+If $\epsilon \to 0$, $\frac{dc}{dT}=-c(k_m+s)+s$.
+
+**Tasking problem**:
+
+Recall our intial conditions of this model are: $s(0)=1$, $c(0)=0$.
+
+However, our equations cannot satisfy the initial condition on the slow time scale, when $\epsilon \to 0$.
+
+$0=s(1-c)-k_mc$, so $c=\frac{s}{s+k_m}$, we can get that $c(0)=\frac{s(0)}{s(0)+k_m}=\frac{1}{1+k_m}$, while the inital condition is $c(0)=0$, which are inconsistent.
+
+
+
+Considering the fast time scale:
+
+when $\epsilon \to 0$, $\frac{ds}{d \tau}=0$, so $s=const=s(0)=1$. So our systems become:
+$$
+\frac{dc}{dT}=(1-c)-k_mc
+$$
+Solving the ODE:
+$$
+c(T)=Be^{-(1+k_m)T}+\frac{1}{1+k_m}
+$$
+Applying the intial condition: $c(0)=0$, so $B=\frac{-1}{1+k_m}$
+
+Thus, 
+$$
+c(T)=\frac{1-e^{-(1+k_m)T}}{1+k_m}
+$$
+
+
+Back to slow time scale:
+
+when $\epsilon \to 0$, we use the same skill:
+$$
+\frac{ds}{d\tau}=-\frac{V_{max}s}{s+k_m}
+$$
+
+
+Solving the ODE:
+$$
+s+k_m \ln{s}=-V_{max}\tau+A
+$$
+Now, there is one constant to be determined, i.e. $A$. We will use a skill called asymptotic matching which will be discussed later.
+
+Taking the limit like below:
+$$
+\lim_{T \to \infty} c(T)=\frac{1}{1+k_m}, \lim_{\tau \to \infty} c(\tau)=\frac{s(0)}{s(0)+k_m}=\frac{1}{1+k_m}
+$$
+Matched!
+
+Do the same: as $\tau \to 0$:
+$$
+k_m \ln s(0)+s(0)=A
+$$
+Thus, $A=1$
+
+What we did above is one of the most important idea in boudary layer theory. Let's introduce it.
+
+### Boundary layer theory
+
+A boundary layer is a narrow region where the solution of a differential equation changes rapidly [9].  Considering the following equations:
+$$
+\epsilon y''+(1+\epsilon)y'+y=0, y(0)=0, y(1)=1.
+$$
+The exact solution is 
+$$
+y(x)=\frac{e^{-x}-e^{-x/\epsilon}}{e^{-1}-e^{-1/\epsilon}}
+$$
+If we plot the solution using python: 
+
+![solutionplot](https://tva1.sinaimg.cn/large/008i3skNgy1gwge8meiudj30hs0dcgm1.jpg)
+
+We found that, because of the term $e^{-x/\epsilon}$, which decays quickly as $\epsilon \to 0$, there is a sharp change of our solution which makes it become a singular problem. So that is the reason why we could not solve the Michaelis-Menten model using a normal way. One more thing is that the thickness of the boundary layer is $O(\epsilon)$.  If we recall that there is also a $\epsilon=\frac{E_0}{S_0}$ in Michaelis-Menten model, so it turns out that we could not capture what is going on at the very beginning by treating it as a regular problem. Actually, we could only solve it under two different time scales.
+
+
+
+### Understanding time scale
+
+It is very tricky for people to treat this problem in two different time scale at the first time. Let me put it in another way. Imaging that you want to capture the motion of an arrow on an England longbow (which is my favorite bow 😊). At the very begining, you cannot see the motion of the arrow unless you have a high-frequency camera since it moves so quickly. However, you can see the trajectory of the arrow if you stay far away from the acher (Not in front of him, you will die otherwise) just using your eyes, which is equivalent as using a low-frequncy camera. Thus, you can caputure the whole motion of the arrow using a high-frequency and low-frequency camera, which stand for two time scales. Considering the time units for these two cameras, you must use $s$ [second] as an unit for high-frequency camera while $h$ [hour] for low-frequency camera.
+
+
+
+![longbow](https://tva1.sinaimg.cn/large/008i3skNgy1gwgemuwkfnj30el0bt3zm.jpg)
+$$
+fast \ time \ scale: 1 h = 3600 s, \tau=\frac{t}{\epsilon}\\
+slow \ time \ scale: 1 s = \frac{1}{3600} h, T = \epsilon t
+$$
+This is exact what we did when solving the Michaelis-Menton model. Because of the existence of the boundary layer, our solution could not satisfy the boudary conditions. So we must work the general solution out with undetermined coefficients and using the asympotic matching skill to find the coefficients then get the final solution.
 
 
 
@@ -428,6 +607,7 @@ $I(100)\approx3.7\times10^{-175}$,while $\sqrt{\frac{\pi}{100}}e^{-400}\approx3.
 [7] Zhang, Zhen, Xiao Xu, and Zhan Wang. "Application of grey prediction model to short-time passenger flow forecast." *AIP Conference Proceedings*. Vol. 1839. No. 1. AIP Publishing LLC, 2017.
 
 [8] 卓金武. "MATLAB 在数学建模中的应用." *北京: 北京航空航天大学出版社* (2011).
+[9] Bender, Carl M., and Steven A. Orszag. *Advanced mathematical methods for scientists and engineers I: Asymptotic methods and perturbation theory*. Springer Science & Business Media, 2013.
 
 
 
