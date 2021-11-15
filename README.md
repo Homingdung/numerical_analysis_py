@@ -433,7 +433,6 @@ $$
 \frac{d[S]}{dt}&= -k_1^{+}[E][S]+k_1^{-}[ES]\\
 \frac{d[ES]}{dt}&=k_1^{+}[E][S]-k_1^{-}[ES]-k_2^{+}[ES]\\
 \frac{d[P]}{dt}&=k_2^{+}{[ES]}
-
 \end{aligned}
 $$
 where $k_1^+=k_f$, $k_1^-=k_r$, $k_2^+=k_{cat}$.
@@ -608,6 +607,7 @@ This is exact what we did when solving the Michaelis-Menton model. Because of th
 [7] Zhang, Zhen, Xiao Xu, and Zhan Wang. "Application of grey prediction model to short-time passenger flow forecast." *AIP Conference Proceedings*. Vol. 1839. No. 1. AIP Publishing LLC, 2017.
 
 [8] 卓金武. "MATLAB 在数学建模中的应用." *北京: 北京航空航天大学出版社* (2011).
+
 [9] Bender, Carl M., and Steven A. Orszag. *Advanced mathematical methods for scientists and engineers I: Asymptotic methods and perturbation theory*. Springer Science & Business Media, 2013.
 
 
