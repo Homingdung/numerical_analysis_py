@@ -588,7 +588,63 @@ This is exact what we did when solving the Michaelis-Menton model. Because of th
 
 
 
+## Perturbation theory
 
+> ```perturbationPlot.py``` will show the problems when we solving the differential equations, where perturbation theory need be used.
+
+
+
+### Boundary layer
+
+Considering the following ODE:
+$$
+\epsilon y''-y'=0, y(0)=0, y(1)=1
+$$
+The exact solution is 
+$$
+y(x)=\frac{e^{x/\epsilon}-1}{e^{1/\epsilon}-1}
+$$
+We could see a abrupt jump, which makes this problem singular as $\epsilon \to 0$. At the same time, if we focus on the exact solution, we can see that the term $e^{x/\epsilon}$ becomes so huge as $\epsilon \to 0$. To deal with this issue, we need boundary layer theory, which using a scale varible. 
+
+![boundary layer](https://tva1.sinaimg.cn/large/008i3skNgy1gwirs03yahj30zk0qodht.jpg)
+
+
+
+### WKB theory
+
+However, boundary layer theory is not powerful enough when we facing problem so called *dispersive*. Considering the following ODE:
+$$
+\epsilon y''+y=0, y(0)=0, y(1)=1
+$$
+The exact solution is:
+$$
+y(x)=\frac{sin(x/\sqrt{\epsilon})}{sin(1/\sqrt{\epsilon})}
+$$
+![WKB](https://tva1.sinaimg.cn/large/008i3skNgy1gwirs1ofxyj30zk0qo43t.jpg)
+
+We can see that there is violent oscillation as $\epsilon \to 0$. In other word, we could say that rapid oscillation occurs on a global scale, which makes boundary layer theory helpless. Thus, to deal with this issue, we need WKBJ theory, assuming that our solution takes the form like $y(x)=e^{\lambda G(x,\lambda)}$, where $G(x,\lambda) \sim G_0+\lambda^{-1} G_1+O(\lambda^{-2})$ and $\lambda \to \infty$.
+
+
+
+### Multiple Scale Method
+
+Unlike the previous two, this issue occurs due the decay and weak oscillation. Considering the following ODE:
+$$
+y''+2\epsilon y'+y=0, y(0)=1, y'(0)=0
+$$
+The exact solution is:
+$$
+y(t)=e^{-\epsilon t}(cos(\sqrt{1-\epsilon ^2}t)+\frac{\epsilon}{\sqrt{1-\epsilon^2}}sin(\sqrt{1-\epsilon ^2}t))
+$$
+![multiple scale](https://tva1.sinaimg.cn/large/008i3skNgy1gwirs0pdqtj30zk0qodi7.jpg)
+
+
+
+If we use one term expasion to solve it, what we get is:
+$$
+y \sim cos(t)+\epsilon (-tcos(t)+sin(t))
+$$
+However, this asymptotic solution is only valid for $t<<\epsilon ^{-1}$, which can be shown in above plot: set $\epsilon = 0.1$, when $t =O(\epsilon ^{-1})=O(10)$, the function grows boundless. But the exact solution is a weak damping with its amplitude reduces slowly. Thus, we need to use multiple scales theory, which requires us to construct the solution in two different time scales by setting $T=\epsilon t$. Therefore, $y=\underbrace{y_0(t,T)}_{capture \ oscillation}+\underbrace{\epsilon y_1(t,T)}_{capture \ the \ slow \ decay}+O(\epsilon ^2)$ and we need to eliminate the secular term after we substitute it into our ODE. It is noticeable that trigonometric skills might be used. 
 
 # References：
 
